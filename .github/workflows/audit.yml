@@ -20,7 +20,7 @@ jobs:
       - name: EditorConfig validation
         uses: snow-actions/eclint@v1.0.1
         with:
-          args: check src/escroom/**/*
+          args: check src/app/**/*
 
       - name: Ensure node_modules is ignored by Git
         uses: dkershner6/gitignore-parser@v1
