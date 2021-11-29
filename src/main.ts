@@ -1,7 +1,7 @@
 import { enableProdMode } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
-import { AppModule } from "./app/escroom.module";
+import { AppModule } from "./escroom/escroom.module";
 import { environment } from "./environments/environment";
 
 if (environment.production) {
