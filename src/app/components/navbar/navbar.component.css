@@ -1,0 +1,11 @@
+.sidebar {
+  @apply bg-fourthColor text-center;
+  height: 100vh;
+  width: 70px;
+}
+.sidebar-icon {
+  @apply p-5;
+}
+.icon {
+  @apply text-mainColor;
+}
