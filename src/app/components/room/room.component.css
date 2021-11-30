@@ -1,0 +1,34 @@
+.dashboard {
+  @apply bg-tercerColor text-white;
+  height: 100vh;
+  width: 100vw;
+}
+.dashboard-div {
+  @apply m-1 lg:m-10;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-title {
+  @apply bg-fourthColor text-center;
+}
+.title {
+  @apply text-center;
+}
+.room-card {
+  @apply bg-secondColor m-4 lg:m-10;
+  display: flex;
+  width: 247px;
+  height: 127px;
+}
+.room-card__title {
+  @apply text-center;
+}
+.div-body {
+  display: flex;
+  flex-direction: row;
+}
+.room-card__img {
+  border-radius: 50%;
+  width: 57px;
+  height: 57px;
+}

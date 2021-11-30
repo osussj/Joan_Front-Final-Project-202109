@@ -1,0 +1,44 @@
+<div class="div-body">
+  <escroom-navbar></escroom-navbar>
+  <main class="dashboard">
+    <div class="dashboard-title">
+      <h2>Dashboard</h2>
+      <p>Complete rooms and upskill in security, all from your browser</p>
+    </div>
+    <div class="dashboard-div">
+      <h3 class="title">Based on your experience</h3>
+      <div
+        *ngFor="let room of storeService.roomSubject$ | async"
+        class="room-card"
+      >
+        <img
+          src="https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png"
+          alt="nodejs Image"
+          class="room-card__img"
+        />
+        <div class="room-card__description">
+          <h3 class="room-card__title">{{ room.name }}</h3>
+          <p>In Javascript everything is a terrible mistake.</p>
+          <!-- <h3>{{ room | json }}</h3> -->
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-div">
+      <h3 class="title">Feature</h3>
+      <div
+        *ngFor="let room of storeService.roomSubject$ | async"
+        class="room-card"
+      >
+        <img
+          src="https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png"
+          alt="nodejs Image"
+          class="room-card__img"
+        />
+        <div class="room-card__description">
+          <h3 class="room-card__title">{{ room.name }}</h3>
+          <p>In Javascript everything is a terrible mistake.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
