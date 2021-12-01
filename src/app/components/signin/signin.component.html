@@ -1,0 +1,15 @@
+<div class="form-container">
+  <h1 class="text-center mb-6">ESC ROOM</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="signin-form">
+    <h2>Sign in to your account</h2>
+    <input type="text" formControlName="username" placeholder="Username" />
+    <input type="password" formControlName="password" placeholder="Password" />
+    <button [disabled]="loginForm.invalid" class="signin-button">
+      Continue
+    </button>
+  </form>
+  <div class="register-div">
+    <h2>Don't have an account?</h2>
+    <button class="signin-button">Join now</button>
+  </div>
+</div>
