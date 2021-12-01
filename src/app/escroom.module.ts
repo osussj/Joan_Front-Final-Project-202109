@@ -3,19 +3,22 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./escroom-routing.module";
 import { AppComponent } from "./escroom.component";
 import { RoomService } from "./core/services/room/room.service";
 import { RoomComponent } from "./components/room/room.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { SigninComponent } from "./components/signin/signin.component";
 
 @NgModule({
-  declarations: [AppComponent, RoomComponent, NavbarComponent],
+  declarations: [AppComponent, RoomComponent, NavbarComponent, SigninComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [RoomService],
   bootstrap: [AppComponent],
