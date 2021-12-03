@@ -1,0 +1,59 @@
+.div-body {
+  display: flex;
+  flex-direction: row;
+}
+.main-room-div {
+  @apply bg-tercerColor text-white;
+  height: 100%;
+  width: 100vw;
+}
+.main-room-title {
+  @apply bg-fourthColor;
+}
+.dashboard-div {
+  @apply m-1 lg:m-10;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-title {
+  @apply bg-fourthColor text-center;
+}
+.main-room-title {
+  @apply text-center;
+}
+.game-div {
+  @apply bg-secondColor flex flex-col justify-around mt-20;
+  width: 100%;
+  height: 198px;
+}
+.game-div--start {
+  @apply flex justify-between px-4;
+}
+.question-div {
+  @apply flex flex-col items-center;
+}
+.question-card {
+  @apply bg-secondColor flex flex-col justify-around my-2 lg:mx-10 py-4 px-5;
+  width: 100%;
+  height: 198px;
+}
+.question-card--description {
+  @apply flex items-center justify-around;
+}
+input {
+  @apply bg-fourthColor;
+  width: 137px;
+  height: 48px;
+}
+
+.icon--send {
+  @apply bg-seventhColor p-2;
+  color: black;
+}
+.icon--hint {
+  @apply bg-sixthColor p-2;
+  color: black;
+}
+.button-icon {
+  font-size: 1.5em;
+}
