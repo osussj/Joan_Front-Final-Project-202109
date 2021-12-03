@@ -13,10 +13,21 @@ export class RoomService {
 
   loadRoom(): Observable<any> {
     return this.http.get(this.apiUrl, {
+      headers: {
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("user") || "").token
+        }`,
+      },
+    });
+  }
+
+  loadQuestions(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/question`, {
       headers: new HttpHeaders({
         "Content-type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZ3Vlc3QiLCJ1c2VybmFtZSI6Imd1ZXN0IiwiaWQiOiI2MTljYmIzNGZlZDgxNzdlNTA2ZTZiZWEiLCJlbWFpbCI6Imd1ZXN0QGd1ZXN0LmNvbSIsImF2YXRhciI6Imd1ZXN0LmpwZyIsImlhdCI6MTYzNzc0NTI2OX0.B4fV8Lhag_-XvtX2646q5BsRJMndhsUrt7FPm1MwytM",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("user") || "").token
+        }`,
       }),
     });
   }
