@@ -1,6 +1,6 @@
 .sidebar {
   @apply bg-fourthColor text-center;
-  height: 100vh;
+  height: 100%;
   width: 70px;
 }
 .sidebar-icon {

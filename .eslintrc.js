@@ -19,6 +19,7 @@ module.exports = {
     "consistent-return": "off",
     "no-console": "off",
     "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
   },
   ignorePatterns: ["/.eslintrc.js", "/karma.conf.js", "/src/polyfills.ts"],
 };

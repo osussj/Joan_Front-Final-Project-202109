@@ -1,11 +1,17 @@
 <div class="sidebar">
   <div class="sidebar-icon">
-    <fa-icon [icon]="faHome" class="icon"></fa-icon>
+    <a routerLink="/dashboard">
+      <fa-icon [icon]="faHome" class="icon"></fa-icon>Home
+    </a>
   </div>
   <div class="sidebar-icon">
-    <fa-icon [icon]="faFlag" class="icon"></fa-icon>
+    <a routerLink="/kot">
+      <fa-icon [icon]="faFlag" class="icon"></fa-icon>Kot
+    </a>
   </div>
   <div class="sidebar-icon">
-    <fa-icon [icon]="faUser" class="icon"></fa-icon>
+    <a routerLink="/profile">
+      <fa-icon [icon]="faUser" class="icon"></fa-icon>Profile
+    </a>
   </div>
 </div>
