@@ -7,6 +7,13 @@
     <button [disabled]="loginForm.invalid" class="signin-button">
       Continue
     </button>
+    <div class="statusRow">
+      <br />
+      <div class="label" *ngIf="errorMessage">
+        Error:
+        {{ errorMessage }}
+      </div>
+    </div>
   </form>
   <div class="register-div">
     <h2>Don't have an account?</h2>

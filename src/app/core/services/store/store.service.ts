@@ -12,10 +12,10 @@ export class StoreService {
 
   public roomSubject$ = this.room$.pipe(switchMap(() => this.printRoom()));
 
-  public user$ = new BehaviorSubject<User>({ username: "", password: "" });
+  public question$ = new BehaviorSubject<{}>({});
 
-  public userSubject$ = this.user$.pipe(
-    switchMap((user) => this.loginUser(user.username, user.password))
+  public questionSubject$ = this.question$.pipe(
+    switchMap(() => this.printQuestion())
   );
 
   public constructor(
@@ -27,7 +27,12 @@ export class StoreService {
     return this.roomService.loadRoom();
   }
 
-  private loginUser(username: string, password: string) {
+  public loginUser(user: User) {
+    const { username, password } = user;
     return this.userService.signin(username, password);
+  }
+
+  private printQuestion() {
+    return this.roomService.loadQuestions();
   }
 }
