@@ -10,9 +10,10 @@ import { RoomService } from "./core/services/room/room.service";
 import { RoomComponent } from "./components/room/room.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SigninComponent } from "./components/signin/signin.component";
+import { EspecificRoomComponent } from './components/especific-room/especific-room.component';
 
 @NgModule({
-  declarations: [AppComponent, RoomComponent, NavbarComponent, SigninComponent],
+  declarations: [AppComponent, RoomComponent, NavbarComponent, SigninComponent, EspecificRoomComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

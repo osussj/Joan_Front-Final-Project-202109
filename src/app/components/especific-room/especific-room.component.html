@@ -1,0 +1,42 @@
+<div class="div-body">
+  <escroom-navbar></escroom-navbar>
+  <main class="main-room-div">
+    <div class="main-room-title">
+      <img src="" alt="" />
+      <h2>Node</h2>
+      <p>In JavaScript everything is a terrible mistake.</p>
+    </div>
+    <div class="game-div">
+      <div class="game-div--start">
+        <p>Start the game</p>
+        <button class="button-icon">
+          <fa-icon [icon]="faStart" class="icon--send"></fa-icon>
+        </button>
+      </div>
+      <div class="game-div--start">
+        <input type="text" disabled placeholder="No answer needed" />
+        <button class="button-icon">
+          <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="question-div">
+      <div
+        *ngFor="let question of storeService.questionSubject$ | async"
+        class="question-card"
+      >
+        <h3 class="question-card__title">{{ question.question }}</h3>
+        <div class="question-card--description">
+          <input type="text" placeholder="{{ func(question.answer) }}" />
+          <button class="button-icon">
+            <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
+          </button>
+          <button class="button-icon">
+            <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+          </button>
+          <!-- <p>{{ question.hint }}</p> -->
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
