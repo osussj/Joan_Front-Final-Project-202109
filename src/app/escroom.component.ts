@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-root",
@@ -9,7 +9,7 @@ import { faRoad } from "@fortawesome/free-solid-svg-icons";
 })
 export class AppComponent {
   constructor() {
-    library.add(faRoad);
+    library.add(fas);
   }
 
   title = "escroomfront";
