@@ -41,4 +41,16 @@ export class RoomService {
       },
     });
   }
+
+  deleteQuestion(id: string): Observable<any> {
+    return this.http.request("delete", `${this.apiUrl}/question`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("user") || "").token
+        }`,
+      },
+      body: { id },
+    });
+  }
 }
