@@ -32,7 +32,7 @@ export class EspecificRoomComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
-    this.questions$.next({});
+    this.questions$.next([]);
     this.questionForm = this.formBuilder.group({
       question: ["", Validators.required],
       answer: ["", Validators.required],
@@ -48,7 +48,7 @@ export class EspecificRoomComponent implements AfterViewInit {
     await this.storeService.sendQuestion(this.questionForm.value).subscribe();
     await this.questionForm.reset();
     this.tocreate = !this.tocreate;
-    this.questions$.next({});
+    this.questions$.next([]);
   }
 
   toCreate() {
@@ -58,5 +58,10 @@ export class EspecificRoomComponent implements AfterViewInit {
       top: document.body.scrollHeight + 20,
       behavior: "smooth",
     });
+  }
+
+  onDelete(id: string) {
+    this.storeService.deleteQuestion(id).subscribe();
+    this.questions$.next([]);
   }
 }
