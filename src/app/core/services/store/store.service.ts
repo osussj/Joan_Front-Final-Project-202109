@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, switchMap } from "rxjs";
-import { User } from "../../models/user";
+import { IQuestion } from "../../models/question";
+import { IUser } from "../../models/user";
 import { RoomService } from "../room/room.service";
 import { UserService } from "../user/user.service";
 
@@ -23,16 +24,20 @@ export class StoreService {
     private userService: UserService
   ) {}
 
-  private printRoom() {
+  public printRoom() {
     return this.roomService.loadRoom();
   }
 
-  public loginUser(user: User) {
+  public loginUser(user: IUser) {
     const { username, password } = user;
     return this.userService.signin(username, password);
   }
 
-  private printQuestion() {
+  public printQuestion() {
     return this.roomService.loadQuestions();
+  }
+
+  public sendQuestion(question: IQuestion) {
+    return this.roomService.postQuestion(question);
   }
 }
