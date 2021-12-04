@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { IQuestion } from "../../models/question";
 
 @Injectable({
   providedIn: "root",
@@ -23,12 +24,21 @@ export class RoomService {
 
   loadQuestions(): Observable<any> {
     return this.http.get(`${this.apiUrl}/question`, {
-      headers: new HttpHeaders({
-        "Content-type": "application/json",
+      headers: {
         Authorization: `Bearer ${
           JSON.parse(localStorage.getItem("user") || "").token
         }`,
-      }),
+      },
+    });
+  }
+
+  postQuestion(data: IQuestion): Observable<any> {
+    return this.http.post(`${this.apiUrl}/question`, data, {
+      headers: {
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("user") || "").token
+        }`,
+      },
     });
   }
 }
