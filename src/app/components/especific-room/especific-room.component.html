@@ -2,7 +2,12 @@
   <escroom-navbar></escroom-navbar>
   <main class="main-room-div">
     <div class="main-room-title">
-      <img src="" alt="" />
+      <img
+        src="https://www.hackthebox.com/storage/avatars/11680a85eaa657026b92b815be86e366.png"
+        width="100"
+        height="100"
+        alt="node image"
+      />
       <h2>Node</h2>
       <p>In JavaScript everything is a terrible mistake.</p>
     </div>
@@ -36,6 +41,26 @@
           </button>
           <!-- <p>{{ question.hint }}</p> -->
         </div>
+      </div>
+      <div class="button-add" (click)="toCreate()">ADD</div>
+      <div *ngIf="tocreate" class="form-div">
+        <form
+          [formGroup]="questionForm"
+          (ngSubmit)="onCreate()"
+          class="signin-form"
+        >
+          <h2>Submit your question</h2>
+          <input
+            type="text"
+            formControlName="question"
+            placeholder="Question"
+          />
+          <input type="text" formControlName="answer" placeholder="Answer" />
+          <input type="text" formControlName="hint" placeholder="Hint" />
+          <button [disabled]="questionForm.invalid" class="create-button">
+            Create
+          </button>
+        </form>
       </div>
     </div>
   </main>
