@@ -39,8 +39,8 @@
           <button class="button-icon">
             <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
           </button>
-          <!-- <p>{{ question.hint }}</p> -->
         </div>
+        <button class="delete-button" (click)="onDelete(question.id)">X</button>
       </div>
       <div class="button-add" (click)="toCreate()">ADD</div>
       <div *ngIf="tocreate" class="form-div">

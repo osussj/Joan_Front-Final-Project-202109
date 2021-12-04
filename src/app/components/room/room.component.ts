@@ -12,6 +12,6 @@ export class RoomComponent implements AfterViewInit {
   constructor(public storeService: StoreService) {}
 
   ngAfterViewInit() {
-    this.allrooms$.next({});
+    this.allrooms$.next([]);
   }
 }
