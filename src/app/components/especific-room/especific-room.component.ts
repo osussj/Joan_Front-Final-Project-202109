@@ -44,10 +44,11 @@ export class EspecificRoomComponent implements AfterViewInit {
     return p.toString().replace(/./g, "*");
   }
 
-  onCreate() {
-    this.storeService.sendQuestion(this.questionForm.value).subscribe();
+  async onCreate() {
+    await this.storeService.sendQuestion(this.questionForm.value).subscribe();
+    await this.questionForm.reset();
+    this.tocreate = !this.tocreate;
     this.questions$.next({});
-    this.questionForm.reset();
   }
 
   toCreate() {
