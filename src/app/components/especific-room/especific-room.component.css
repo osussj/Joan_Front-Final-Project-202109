@@ -57,3 +57,34 @@ input {
 .button-icon {
   font-size: 1.5em;
 }
+.button-add {
+  @apply bg-white fixed;
+  width: 40px;
+  bottom: 20px;
+  right: 20px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: black;
+  padding-top: 7px;
+}
+.create-button {
+  @apply bg-seventhColor;
+  border-radius: 5%;
+  height: 48px;
+  width: 20%;
+}
+.form-div {
+  @apply bg-fifthColor;
+  opacity: 90%;
+  width: 70vw;
+  height: 100px;
+  position: fixed;
+  bottom: 20px;
+  padding: 10px;
+}
+
+.form-div.hidden {
+  /* display: none; */
+}
