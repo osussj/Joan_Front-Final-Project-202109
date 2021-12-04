@@ -19,12 +19,9 @@ module.exports = {
         fifthColor: "#212A39",
         sixthColor: "#FA811B",
         seventhColor: "#28A745",
-        violet: {
-          100: "#A200FF",
-          200: "#7E00C6",
-          300: "#5A008E",
-          400: "#360055",
-          500: "#12001C",
+        red: {
+          100: "#FF3333",
+          200: "#61252E",
         },
       },
     },

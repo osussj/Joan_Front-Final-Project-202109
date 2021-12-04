@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, switchMap } from "rxjs";
+import { BehaviorSubject, debounceTime, switchMap } from "rxjs";
 import { IQuestion } from "../../models/question";
+import { IRoom } from "../../models/room";
 import { IUser } from "../../models/user";
 import { RoomService } from "../room/room.service";
 import { UserService } from "../user/user.service";
@@ -9,13 +10,14 @@ import { UserService } from "../user/user.service";
   providedIn: "root",
 })
 export class StoreService {
-  public room$ = new BehaviorSubject<{}>({});
+  public room$ = new BehaviorSubject<IRoom[]>([]);
 
   public roomSubject$ = this.room$.pipe(switchMap(() => this.printRoom()));
 
-  public question$ = new BehaviorSubject<{}>({});
+  public question$ = new BehaviorSubject<IQuestion[]>([]);
 
   public questionSubject$ = this.question$.pipe(
+    debounceTime(50),
     switchMap(() => this.printQuestion())
   );
 
@@ -39,5 +41,9 @@ export class StoreService {
 
   public sendQuestion(question: IQuestion) {
     return this.roomService.postQuestion(question);
+  }
+
+  public deleteQuestion(questionId: string) {
+    return this.roomService.deleteQuestion(questionId);
   }
 }
