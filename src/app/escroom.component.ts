@@ -12,5 +12,5 @@ export class AppComponent {
     library.add(fas);
   }
 
-  title = "escroomfront";
+  title = "ESCROOM :: ESCROOM";
 }
