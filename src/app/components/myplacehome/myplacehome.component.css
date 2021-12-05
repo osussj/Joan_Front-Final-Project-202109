@@ -1,0 +1,25 @@
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.title-div {
+  @apply bg-eighthColor flex items-center;
+  width: 100vw;
+  height: 299px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+.description-div {
+  @apply bg-eighthColor flex flex-col items-center;
+  width: 100vw;
+  height: 299px;
+  color: white;
+}
+
+.profiles-div {
+  @apply flex flex-col items-center my-6;
+  text-align: center;
+}
