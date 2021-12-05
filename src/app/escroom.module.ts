@@ -12,6 +12,7 @@ import { RoomComponent } from "./components/room/room.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
+import { MyplacehomeComponent } from './components/myplacehome/myplacehome.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { EspecificRoomComponent } from "./components/especific-room/especific-ro
     NavbarComponent,
     SigninComponent,
     EspecificRoomComponent,
+    MyplacehomeComponent,
   ],
   imports: [
     BrowserModule,

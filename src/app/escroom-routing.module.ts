@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
+import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
 import { RoomComponent } from "./components/room/room.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { GuardService } from "./core/services/guard/guard.service";
@@ -13,6 +14,7 @@ const routes: Routes = [
     component: EspecificRoomComponent,
     canActivate: [GuardService],
   },
+  { path: "myplace/home", component: MyplacehomeComponent },
   { path: "**", redirectTo: "/dashboard", pathMatch: "full" },
 ];
 
