@@ -19,6 +19,7 @@ module.exports = {
         fifthColor: "#212A39",
         sixthColor: "#FA811B",
         seventhColor: "#28A745",
+        eighthColor: "#18BC9C",
         red: {
           100: "#FF3333",
           200: "#61252E",
