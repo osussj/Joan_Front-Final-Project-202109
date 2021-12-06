@@ -13,6 +13,7 @@ import { SigninComponent } from "./components/signin/signin.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
 import { MyplaceprofileComponent } from './components/myplaceprofile/myplaceprofile.component';
+import { MyplaceadminComponent } from './components/myplaceadmin/myplaceadmin.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MyplaceprofileComponent } from './components/myplaceprofile/myplaceprof
     EspecificRoomComponent,
     MyplacehomeComponent,
     MyplaceprofileComponent,
+    MyplaceadminComponent,
   ],
   imports: [
     BrowserModule,

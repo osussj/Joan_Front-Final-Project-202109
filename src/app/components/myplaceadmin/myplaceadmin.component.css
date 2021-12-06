@@ -1,0 +1,10 @@
+.backup-button {
+  @apply bg-yellow-100;
+  border: black 1px solid;
+  margin-top: 20px;
+}
+.admin-title {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+}
