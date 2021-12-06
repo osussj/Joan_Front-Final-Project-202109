@@ -46,4 +46,8 @@ export class StoreService {
   public deleteQuestion(questionId: string) {
     return this.roomService.deleteQuestion(questionId);
   }
+
+  public updateQuestion(question: object) {
+    return this.roomService.updateQuestion(question);
+  }
 }

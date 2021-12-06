@@ -27,20 +27,47 @@
     </div>
     <div class="question-div">
       <div
-        *ngFor="let question of storeService.questionSubject$ | async"
+        *ngFor="
+          let question of storeService.questionSubject$ | async;
+          let i = index
+        "
         class="question-card"
+        id="{{ i }}"
       >
-        <h3 class="question-card__title">{{ question.question }}</h3>
+        <h3 *ngIf="value !== i" class="question-card__title">
+          {{ question.question }}
+        </h3>
+        <input
+          *ngIf="value === i"
+          value="{{ question.question }}"
+          (blur)="blurEvent($event)"
+        />
         <div class="question-card--description">
-          <input type="text" placeholder="{{ func(question.answer) }}" />
-          <button class="button-icon">
-            <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
-          </button>
-          <button class="button-icon">
-            <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
-          </button>
+          <form [formGroup]="answerForm" (ngSubmit)="onAnswer(question.answer)">
+            <input
+              type="text"
+              placeholder="{{ func(question.answer) }}"
+              (blur)="blurAnswerEvent($event)"
+            />
+            <button class="button-icon" type="submit">
+              <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
+            </button>
+            <button class="button-icon">
+              <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+            </button>
+          </form>
         </div>
         <button class="delete-button" (click)="onDelete(question.id)">X</button>
+        <button *ngIf="value !== i" class="edit-button" (click)="toEdit(i)">
+          <fa-icon [icon]="faEdit" class="icon--edit"></fa-icon>
+        </button>
+        <button
+          *ngIf="value === i"
+          class="edit-button"
+          (click)="onEdit(question)"
+        >
+          <fa-icon [icon]="faShare"></fa-icon>
+        </button>
       </div>
       <div class="button-add" (click)="toCreate()">ADD</div>
       <div *ngIf="tocreate" class="form-div">

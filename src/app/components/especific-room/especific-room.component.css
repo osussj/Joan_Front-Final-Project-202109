@@ -71,6 +71,7 @@ input {
   padding-top: 7px;
   z-index: 2;
 }
+
 .create-button {
   @apply bg-seventhColor;
   border-radius: 5%;
@@ -85,12 +86,23 @@ input {
   position: fixed;
   bottom: 20px;
   padding: 10px;
+  z-index: 1;
 }
 .delete-button {
   @apply bg-red-100;
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50rem;
+}
+.edit-button {
+  @apply bg-blue-600;
+  position: absolute;
+  top: 0;
+  right: 40px;
   z-index: 1;
   width: 30px;
   height: 30px;

@@ -54,4 +54,9 @@ describe("StoreService", () => {
     service.deleteQuestion("id");
     expect(spyFn).toHaveBeenCalled();
   });
+  it("should call updateQuestion", () => {
+    const spyFn = spyOn(service, "updateQuestion").and.callThrough();
+    service.updateQuestion({});
+    expect(spyFn).toHaveBeenCalled();
+  });
 });
