@@ -1,9 +1,8 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./escroom-routing.module";
 import { AppComponent } from "./escroom.component";
@@ -12,7 +11,7 @@ import { RoomComponent } from "./components/room/room.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
-import { MyplacehomeComponent } from './components/myplacehome/myplacehome.component';
+import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +29,7 @@ import { MyplacehomeComponent } from './components/myplacehome/myplacehome.compo
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [RoomService],
   bootstrap: [AppComponent],
