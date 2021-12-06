@@ -1,0 +1,17 @@
+.title-div {
+  @apply bg-eighthColor flex items-center;
+  width: 100vw;
+  height: 299px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+.profiles-div {
+  @apply flex flex-col items-center my-6;
+  text-align: center;
+}
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
