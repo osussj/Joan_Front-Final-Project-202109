@@ -6,8 +6,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class UserService {
-  apiUrl: string =
-    "https://proyecto-final-joan-back.herokuapp.com/api/user/login";
+  apiUrl: string = "https://escroom.herokuapp.com/api/user/login";
 
   constructor(private http: HttpClient) {}
 
