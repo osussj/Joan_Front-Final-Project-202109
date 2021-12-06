@@ -12,6 +12,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
+import { MyplaceprofileComponent } from './components/myplaceprofile/myplaceprofile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.compo
     SigninComponent,
     EspecificRoomComponent,
     MyplacehomeComponent,
+    MyplaceprofileComponent,
   ],
   imports: [
     BrowserModule,
