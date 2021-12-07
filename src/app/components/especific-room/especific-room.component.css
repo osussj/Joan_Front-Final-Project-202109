@@ -8,7 +8,7 @@
   width: 100vw;
 }
 .main-room-title {
-  @apply bg-fourthColor;
+  @apply bg-fourthColor text-center;
 }
 .dashboard-div {
   @apply m-1 lg:m-10;
@@ -17,9 +17,6 @@
 }
 .dashboard-title {
   @apply bg-fourthColor text-center;
-}
-.main-room-title {
-  @apply text-center;
 }
 .game-div {
   @apply bg-secondColor flex flex-col justify-around mt-20;
