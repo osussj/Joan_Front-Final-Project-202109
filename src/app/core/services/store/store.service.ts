@@ -3,6 +3,7 @@ import { BehaviorSubject, debounceTime, switchMap } from "rxjs";
 import { IQuestion } from "../../models/question";
 import { IRoom } from "../../models/room";
 import { IUser } from "../../models/user";
+import { MyplaceService } from "../myplace/myplace.service";
 import { RoomService } from "../room/room.service";
 import { UserService } from "../user/user.service";
 
@@ -21,9 +22,14 @@ export class StoreService {
     switchMap(() => this.printQuestion())
   );
 
+  public user$ = new BehaviorSubject<[]>([]);
+
+  public userSubject$ = this.user$.pipe(switchMap(() => this.loadUsers()));
+
   public constructor(
     private roomService: RoomService,
-    private userService: UserService
+    private userService: UserService,
+    private myplaceService: MyplaceService
   ) {}
 
   public printRoom() {
@@ -49,5 +55,9 @@ export class StoreService {
 
   public updateQuestion(question: object) {
     return this.roomService.updateQuestion(question);
+  }
+
+  public loadUsers() {
+    return this.myplaceService.loadUsers();
   }
 }

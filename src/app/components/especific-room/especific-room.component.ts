@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import {
   faEdit,
@@ -6,16 +6,20 @@ import {
   faPlay,
   faPuzzlePiece,
   faShareSquare,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
+import jwtDecode from "jwt-decode";
+import { ToastrService } from "ngx-toastr";
 
 import { StoreService } from "src/app/core/services/store/store.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "escroom-especific-room",
   templateUrl: "./especific-room.component.html",
   styleUrls: ["./especific-room.component.css"],
 })
-export class EspecificRoomComponent implements AfterViewInit {
+export class EspecificRoomComponent implements OnInit {
   faHint = faPuzzlePiece;
 
   faStart = faPlay;
@@ -25,6 +29,10 @@ export class EspecificRoomComponent implements AfterViewInit {
   faEdit = faEdit;
 
   faShare = faShareSquare;
+
+  faSpinner = faSpinner;
+
+  isLoadingThePage: boolean = false;
 
   value: number = -1;
 
@@ -42,18 +50,27 @@ export class EspecificRoomComponent implements AfterViewInit {
 
   answerQuestion: string = "";
 
+  hintQuestion: string = "";
+
+  isAdmin: boolean = false;
+
+  correctAnswer: number = -1;
+
+  startGame: boolean = false;
+
   newQuestion: object = {};
 
   @Input() tryAnswer!: string;
 
   constructor(
     public storeService: StoreService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) {}
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.questions$.next([]);
-
+    this.isUserAdmin();
     this.questionForm = this.formBuilder.group({
       question: ["", Validators.required],
       answer: ["", Validators.required],
@@ -66,6 +83,27 @@ export class EspecificRoomComponent implements AfterViewInit {
 
   func(p: any) {
     return p.toString().replace(/./g, "*");
+  }
+
+  getToken() {
+    const userLogged = localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user") || "")
+      : "";
+
+    if (userLogged) {
+      return userLogged.token;
+    }
+    return null;
+  }
+
+  token: string = this.getToken();
+
+  userToken: any = jwtDecode(this.token);
+
+  isUserAdmin() {
+    if (this.userToken.isAdmin === true) {
+      this.isAdmin = true;
+    }
   }
 
   onCreate() {
@@ -95,11 +133,17 @@ export class EspecificRoomComponent implements AfterViewInit {
     this.questions$.next([]);
   }
 
-  onAnswer(answer: string) {
-    if (answer === this.answerQuestion) {
-      console.log("correcte");
+  onStart() {
+    this.startGame = !this.startGame;
+    this.toastr.success("Correct answer");
+  }
+
+  onAnswer(answer: any, i: number) {
+    if (answer === this.answerQuestion.toLowerCase()) {
+      this.toastr.success("Correct answer");
+      this.correctAnswer = i;
     } else {
-      console.log("merda");
+      this.toastr.error("Wrong answer");
     }
   }
 
@@ -116,5 +160,14 @@ export class EspecificRoomComponent implements AfterViewInit {
 
   blurAnswerEvent(event: any) {
     this.answerQuestion = event.target.value;
+  }
+
+  blurHintEvent(event: any) {
+    this.hintQuestion = event.currentTarget.id;
+    Swal.fire("", this.hintQuestion, "question");
+  }
+
+  openNewTab() {
+    window.open("https://escroom.netlify.app/myplace/home");
   }
 }

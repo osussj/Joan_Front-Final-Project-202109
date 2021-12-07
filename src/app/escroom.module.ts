@@ -4,6 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 import { AppRoutingModule } from "./escroom-routing.module";
 import { AppComponent } from "./escroom.component";
 import { RoomService } from "./core/services/room/room.service";
@@ -12,8 +14,9 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
-import { MyplaceprofileComponent } from './components/myplaceprofile/myplaceprofile.component';
-import { MyplaceadminComponent } from './components/myplaceadmin/myplaceadmin.component';
+import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprofile.component";
+import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
+import { LatestusersComponent } from "./components/latestusers/latestusers.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { MyplaceadminComponent } from './components/myplaceadmin/myplaceadmin.co
     MyplacehomeComponent,
     MyplaceprofileComponent,
     MyplaceadminComponent,
+    LatestusersComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { MyplaceadminComponent } from './components/myplaceadmin/myplaceadmin.co
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [RoomService],
   bootstrap: [AppComponent],

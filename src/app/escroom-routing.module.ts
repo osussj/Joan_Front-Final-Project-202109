@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
+import { LatestusersComponent } from "./components/latestusers/latestusers.component";
 import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
 import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprofile.component";
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "myplace/home", component: MyplacehomeComponent },
   { path: "myplace/profiles", component: MyplaceprofileComponent },
   { path: "myplace/admin", component: MyplaceadminComponent },
+  { path: "myplace/api/users", component: LatestusersComponent },
   { path: "**", redirectTo: "/dashboard", pathMatch: "full" },
 ];
 
