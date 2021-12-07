@@ -47,6 +47,10 @@ export class StoreService {
     return this.userService.signin(username, password);
   }
 
+  public registerUser(data: object) {
+    return this.userService.register(data);
+  }
+
   public printQuestion() {
     return this.roomService.loadQuestions();
   }
