@@ -1,94 +1,146 @@
 <div class="div-body">
   <escroom-navbar></escroom-navbar>
-  <main class="main-room-div">
-    <div class="main-room-title">
-      <img
-        src="https://www.hackthebox.com/storage/avatars/11680a85eaa657026b92b815be86e366.png"
-        width="100"
-        height="100"
-        alt="node image"
-      />
-      <h2>Node</h2>
-      <p>In JavaScript everything is a terrible mistake.</p>
+
+  <ng-container *ngIf="isLoadingThePage; then loading; else loaded">
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="loading">
+      <fa-icon class="fa-4x fa-spin" [icon]="faSpinner"></fa-icon>
     </div>
-    <div class="game-div">
-      <div class="game-div--start">
-        <p>Start the game</p>
-        <button class="button-icon">
-          <fa-icon [icon]="faStart" class="icon--send"></fa-icon>
-        </button>
-      </div>
-      <div class="game-div--start">
-        <input type="text" disabled placeholder="No answer needed" />
-        <button class="button-icon">
-          <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
-        </button>
-      </div>
-    </div>
-    <div class="question-div">
-      <div
-        *ngFor="
-          let question of storeService.questionSubject$ | async;
-          let i = index
-        "
-        class="question-card"
-        id="{{ i }}"
-      >
-        <h3 *ngIf="value !== i" class="question-card__title">
-          {{ question.question }}
-        </h3>
-        <input
-          *ngIf="value === i"
-          value="{{ question.question }}"
-          (blur)="blurEvent($event)"
+  </ng-template>
+  <ng-template #loaded>
+    <main class="main-room-div">
+      <div class="main-room-title">
+        <img
+          src="https://www.hackthebox.com/storage/avatars/11680a85eaa657026b92b815be86e366.png"
+          width="100"
+          height="100"
+          alt="node image"
         />
-        <div class="question-card--description">
-          <form [formGroup]="answerForm" (ngSubmit)="onAnswer(question.answer)">
+        <h2>Node</h2>
+        <p>In JavaScript everything is a terrible mistake.</p>
+      </div>
+      <div class="game-div">
+        <div class="game-div--start">
+          <p>Start the game</p>
+          <button class="button-icon">
+            <fa-icon
+              [icon]="faStart"
+              class="icon--send"
+              (click)="openNewTab()"
+            ></fa-icon>
+          </button>
+        </div>
+        <div class="game-div--start">
+          <input type="text" readonly placeholder="No answer needed" />
+
+          <button
+            class="button-icon"
+            (click)="onStart()"
+            [disabled]="startGame"
+          >
+            <fa-icon
+              [icon]="faSend"
+              class="{{ startGame ? 'correct' : 'icon--send' }}"
+            ></fa-icon>
+          </button>
+        </div>
+      </div>
+      <div class="question-div">
+        <div
+          *ngFor="
+            let question of storeService.questionSubject$ | async;
+            let i = index
+          "
+          class="question-card"
+          id="{{ i }}"
+        >
+          <h3 *ngIf="value !== i" class="question-card__title">
+            {{ question.question }}
+          </h3>
+          <input
+            *ngIf="value === i"
+            value="{{ question.question }}"
+            (blur)="blurEvent($event)"
+          />
+          <div class="question-card--description">
+            <form [formGroup]="answerForm">
+              <input
+                [readonly]="correctAnswer === i"
+                type="text"
+                class="{{ correctAnswer === i ? 'correct-answer' : '' }}"
+                placeholder="{{ func(question.answer) }}"
+                (blur)="blurAnswerEvent($event)"
+              />
+              <button
+                class="button-icon"
+                id="{{ question.answer }}"
+                type="submit"
+                [disabled]="correctAnswer === i"
+                (click)="onAnswer(question.answer, i)"
+              >
+                <fa-icon
+                  [icon]="faSend"
+                  class="{{ correctAnswer === i ? 'correct' : 'icon--send' }}"
+                ></fa-icon>
+              </button>
+              <button
+                class="button-icon"
+                (click)="blurHintEvent($event)"
+                id="{{ question.hint }}"
+              >
+                <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+              </button>
+            </form>
+          </div>
+          <button
+            class="{{ isAdmin ? 'delete-button' : 'no-admin' }}"
+            (click)="onDelete(question.id)"
+          >
+            X
+          </button>
+          <button
+            *ngIf="value !== i"
+            class="{{ isAdmin ? 'edit-button' : 'no-admin' }}"
+            (click)="toEdit(i)"
+          >
+            <fa-icon [icon]="faEdit" class="icon--edit"></fa-icon>
+          </button>
+          <button
+            *ngIf="value === i"
+            class="edit-button"
+            (click)="onEdit(question)"
+          >
+            <fa-icon [icon]="faShare"></fa-icon>
+          </button>
+        </div>
+        <div
+          class="{{ isAdmin ? 'button-add' : 'no-admin' }}"
+          (click)="toCreate()"
+        >
+          ADD
+        </div>
+        <div *ngIf="tocreate" class="form-div">
+          <form
+            [formGroup]="questionForm"
+            (ngSubmit)="onCreate()"
+            class="signin-form"
+          >
+            <h2>Submit your question</h2>
             <input
               type="text"
-              placeholder="{{ func(question.answer) }}"
-              (blur)="blurAnswerEvent($event)"
+              formControlName="question"
+              placeholder="Question"
             />
-            <button class="button-icon" type="submit">
-              <fa-icon [icon]="faSend" class="icon--send"></fa-icon>
-            </button>
-            <button class="button-icon">
-              <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+            <input type="text" formControlName="answer" placeholder="Answer" />
+            <input type="text" formControlName="hint" placeholder="Hint" />
+            <button [disabled]="questionForm.invalid" class="create-button">
+              Create
             </button>
           </form>
         </div>
-        <button class="delete-button" (click)="onDelete(question.id)">X</button>
-        <button *ngIf="value !== i" class="edit-button" (click)="toEdit(i)">
-          <fa-icon [icon]="faEdit" class="icon--edit"></fa-icon>
-        </button>
-        <button
-          *ngIf="value === i"
-          class="edit-button"
-          (click)="onEdit(question)"
-        >
-          <fa-icon [icon]="faShare"></fa-icon>
-        </button>
       </div>
-      <div class="button-add" (click)="toCreate()">ADD</div>
-      <div *ngIf="tocreate" class="form-div">
-        <form
-          [formGroup]="questionForm"
-          (ngSubmit)="onCreate()"
-          class="signin-form"
-        >
-          <h2>Submit your question</h2>
-          <input
-            type="text"
-            formControlName="question"
-            placeholder="Question"
-          />
-          <input type="text" formControlName="answer" placeholder="Answer" />
-          <input type="text" formControlName="hint" placeholder="Hint" />
-          <button [disabled]="questionForm.invalid" class="create-button">
-            Create
-          </button>
-        </form>
-      </div>
-    </div>
-  </main>
+    </main>
+  </ng-template>
 </div>
