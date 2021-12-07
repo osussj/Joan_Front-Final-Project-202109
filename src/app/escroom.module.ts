@@ -18,6 +18,7 @@ import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprof
 import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
 import { LatestusersComponent } from "./components/latestusers/latestusers.component";
 import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MyplaceadminComponent,
     LatestusersComponent,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

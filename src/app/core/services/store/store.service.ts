@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, debounceTime, Subject, switchMap } from "rxjs";
+import { BehaviorSubject, debounceTime, switchMap } from "rxjs";
 import { IQuestion } from "../../models/question";
 import { IRoom } from "../../models/room";
 import { IUser } from "../../models/user";
@@ -45,6 +45,10 @@ export class StoreService {
   public loginUser(user: IUser) {
     const { username, password } = user;
     return this.userService.signin(username, password);
+  }
+
+  public registerUser(data: object) {
+    return this.userService.register(data);
   }
 
   public printQuestion() {

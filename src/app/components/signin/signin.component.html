@@ -3,7 +3,12 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="signin-form">
     <h2>Sign in to your account</h2>
     <input type="text" formControlName="username" placeholder="Username" />
-    <input type="password" formControlName="password" placeholder="Password" />
+    <input
+      type="password"
+      formControlName="password"
+      autocomplete="on"
+      placeholder="Password"
+    />
     <button [disabled]="loginForm.invalid" class="signin-button" type="submit">
       Continue
     </button>

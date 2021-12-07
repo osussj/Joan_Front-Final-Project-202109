@@ -59,4 +59,9 @@ describe("StoreService", () => {
     service.updateQuestion({});
     expect(spyFn).toHaveBeenCalled();
   });
+  it("should call register", () => {
+    const spyFn = spyOn(service, "registerUser").and.callThrough();
+    service.registerUser({});
+    expect(spyFn).toHaveBeenCalled();
+  });
 });
