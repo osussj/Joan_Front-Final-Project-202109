@@ -6,12 +6,14 @@ import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.co
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
 import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprofile.component";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { RegisterComponent } from "./components/register/register.component";
 import { RoomComponent } from "./components/room/room.component";
 import { SigninComponent } from "./components/signin/signin.component";
 import { GuardService } from "./core/services/guard/guard.service";
 
 const routes: Routes = [
   { path: "signin", component: SigninComponent },
+  { path: "register", component: RegisterComponent },
   { path: "dashboard", component: RoomComponent, canActivate: [GuardService] },
   { path: "profile", component: ProfileComponent, canActivate: [GuardService] },
   {
