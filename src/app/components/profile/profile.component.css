@@ -1,0 +1,30 @@
+.dashboard {
+  @apply bg-tercerColor text-white;
+  height: 100vh;
+  width: 100vw;
+}
+.dashboard-div {
+  @apply m-1 lg:m-10 bg-secondColor;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard-title {
+  @apply bg-fourthColor text-center;
+}
+.title {
+  @apply text-center;
+}
+.div-body {
+  display: flex;
+  flex-direction: row;
+}
+.profile-image {
+  @apply mb-4;
+}
+input {
+  @apply bg-fourthColor px-2 mr-2 mb-4;
+  width: 200px;
+  height: 48px;
+}

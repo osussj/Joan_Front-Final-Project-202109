@@ -1,0 +1,26 @@
+<div class="div-body">
+  <escroom-navbar></escroom-navbar>
+  <main class="dashboard">
+    <div class="dashboard-title">
+      <h2>My profile</h2>
+      <p>Manage your account</p>
+    </div>
+    <div class="dashboard-div">
+      <div *ngIf="storeService.userProfileSubject$ | async as user">
+        <img
+          src="https://tryhackme-images.s3.amazonaws.com/user-avatars/5a52b63fd0efcc60f628d43c4014a7d9.png"
+          width="200"
+          height="200"
+          class="profile-image"
+          alt="{{ user.avatar }}"
+        />
+        <h3 class="title">Full name</h3>
+        <input type="text" readonly value="{{ user.name }}" />
+        <h3 class="title">Username</h3>
+        <input type="text" readonly value="{{ user.username }}" />
+        <h3 class="title">Email</h3>
+        <input type="text" readonly value="{{ user.email }}" />
+      </div>
+    </div>
+  </main>
+</div>
