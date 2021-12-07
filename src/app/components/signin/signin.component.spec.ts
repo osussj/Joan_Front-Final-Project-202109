@@ -30,6 +30,11 @@ describe("SigninComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+  it("Should render a button disabled", () => {
+    const submitButton = fixture.debugElement.query(By.css("button"));
+
+    expect(submitButton.nativeElement.disabled).toBeTrue();
+  });
   it("should be valid when the user fills in all the inputs", () => {
     const usernameInput =
       fixture.debugElement.nativeElement.querySelectorAll("input")[0];
