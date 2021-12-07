@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, debounceTime, switchMap } from "rxjs";
+import { BehaviorSubject, debounceTime, Subject, switchMap } from "rxjs";
 import { IQuestion } from "../../models/question";
 import { IRoom } from "../../models/room";
 import { IUser } from "../../models/user";
@@ -25,6 +25,12 @@ export class StoreService {
   public user$ = new BehaviorSubject<[]>([]);
 
   public userSubject$ = this.user$.pipe(switchMap(() => this.loadUsers()));
+
+  public userProfile$ = new BehaviorSubject<{}>({});
+
+  public userProfileSubject$ = this.userProfile$.pipe(
+    switchMap(() => this.loadUserProfile())
+  );
 
   public constructor(
     private roomService: RoomService,
@@ -59,5 +65,9 @@ export class StoreService {
 
   public loadUsers() {
     return this.myplaceService.loadUsers();
+  }
+
+  public loadUserProfile() {
+    return this.userService.loadUserProfile();
   }
 }
