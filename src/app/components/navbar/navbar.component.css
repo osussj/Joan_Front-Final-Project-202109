@@ -2,6 +2,7 @@
   @apply bg-fourthColor text-center;
   height: 100%;
   width: 70px;
+  color: white;
 }
 .sidebar-icon {
   @apply p-5;
