@@ -25,6 +25,10 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/login`, { username, password });
   }
 
+  register(data: object): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, data);
+  }
+
   loadUserProfile(): Observable<any> {
     const token = this.getToken();
     return this.http.get(`${this.apiUrl}/profile`, {
