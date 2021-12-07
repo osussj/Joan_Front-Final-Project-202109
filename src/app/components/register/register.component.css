@@ -1,0 +1,33 @@
+.signin-form {
+  @apply rounded-lg bg-secondColor flex flex-col justify-evenly text-center;
+  width: 267px;
+  height: 374px;
+}
+.signin-button {
+  @apply bg-fifthColor mx-auto;
+  width: 191px;
+  height: 61px;
+}
+.signin-button:active {
+  @apply bg-mainColor mx-auto;
+}
+.second-title {
+  @apply text-mainColor;
+}
+.form-container {
+  @apply bg-tercerColor flex flex-col items-center justify-center px-10;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
+.register-div {
+  @apply bg-secondColor flex items-center mt-10 px-4;
+  width: 269px;
+  height: 134px;
+}
+
+input {
+  @apply bg-fourthColor mx-auto px-3;
+  width: 191px;
+  height: 61px;
+}
