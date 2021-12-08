@@ -1,0 +1,9 @@
+.navbar {
+  @apply bg-navbarColor text-center flex justify-between items-center;
+  height: 88px;
+  width: 100%;
+  color: white;
+}
+.navbar-sites {
+  @apply p-5;
+}
