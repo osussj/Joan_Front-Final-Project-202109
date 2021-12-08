@@ -64,4 +64,9 @@ describe("StoreService", () => {
     service.registerUser({});
     expect(spyFn).toHaveBeenCalled();
   });
+  it("should call loadLatestUsers", () => {
+    const spyFn = spyOn(service, "loadLatestUsers").and.callThrough();
+    service.loadLatestUsers();
+    expect(spyFn).toHaveBeenCalled();
+  });
 });
