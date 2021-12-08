@@ -1,0 +1,3 @@
+<div *ngIf="storeService.latestUsersSubject$ | async as usersNode">
+  {{ usersNode | json }}
+</div>
