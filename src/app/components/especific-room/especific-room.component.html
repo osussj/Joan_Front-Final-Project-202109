@@ -24,7 +24,7 @@
       <div class="game-div">
         <div class="game-div--start">
           <p>Start the game</p>
-          <button class="button-icon">
+          <button class="button-icon" aria-label="search">
             <fa-icon
               [icon]="faStart"
               class="icon--send"
@@ -39,6 +39,7 @@
             class="button-icon"
             (click)="onStart()"
             [disabled]="startGame"
+            aria-label="search"
           >
             <fa-icon
               [icon]="faSend"
@@ -79,6 +80,7 @@
                 type="submit"
                 [disabled]="correctAnswer === i"
                 (click)="onAnswer(question.answer, i)"
+                aria-label="search"
               >
                 <fa-icon
                   [icon]="faSend"
@@ -89,6 +91,7 @@
                 class="button-icon"
                 (click)="blurHintEvent($event)"
                 id="{{ question.hint }}"
+                aria-label="search"
               >
                 <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
               </button>
@@ -97,6 +100,7 @@
           <button
             class="{{ isAdmin ? 'delete-button' : 'no-admin' }}"
             (click)="onDelete(question.id)"
+            aria-label="search"
           >
             X
           </button>
@@ -104,6 +108,7 @@
             *ngIf="value !== i"
             class="{{ isAdmin ? 'edit-button' : 'no-admin' }}"
             (click)="toEdit(i)"
+            aria-label="search"
           >
             <fa-icon [icon]="faEdit" class="icon--edit"></fa-icon>
           </button>
@@ -111,6 +116,7 @@
             *ngIf="value === i"
             class="edit-button"
             (click)="onEdit(question)"
+            aria-label="search"
           >
             <fa-icon [icon]="faShare"></fa-icon>
           </button>
