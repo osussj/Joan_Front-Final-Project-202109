@@ -25,6 +25,7 @@
             "assets": [
               "src/_redirects",
               "src/robots.txt",
+              "src/assets/nodejs.png",
               "src/favicon.ico",
               "src/assets",
               "src/assets/favicon.svg"
