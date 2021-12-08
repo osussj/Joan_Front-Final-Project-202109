@@ -1,6 +1,11 @@
 <div class="form-container">
   <h1 class="text-center mb-6">ESC ROOM</h1>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="signin-form">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()"
+    class="signin-form"
+    autocomplete="off"
+  >
     <h2>Create your account.</h2>
     <h3 class="second-title">Join thousands of hackers</h3>
     <input type="text" formControlName="name" placeholder="Name" />

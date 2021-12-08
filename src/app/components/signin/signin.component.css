@@ -3,8 +3,11 @@
   width: 267px;
   height: 374px;
 }
+.signin-button:disabled {
+  @apply bg-fifthColor text-navbarColor;
+}
 .signin-button {
-  @apply bg-fifthColor mx-auto;
+  @apply transition duration-200 ease-linear bg-mainColor mx-auto text-fifthColor;
   width: 191px;
   height: 61px;
 }

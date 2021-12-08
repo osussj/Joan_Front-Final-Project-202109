@@ -1,15 +1,17 @@
 .signin-form {
   @apply rounded-lg bg-secondColor flex flex-col justify-evenly text-center;
   width: 267px;
-  height: 374px;
+  height: 475px;
 }
-.signin-button {
-  @apply bg-fifthColor mx-auto;
+.signin-button:disabled {
+  @apply bg-fifthColor text-navbarColor mx-auto;
   width: 191px;
   height: 61px;
 }
-.signin-button:active {
-  @apply bg-mainColor mx-auto;
+.signin-button {
+  @apply transition duration-200 ease-linear bg-mainColor text-fifthColor mx-auto mb-5;
+  width: 191px;
+  height: 61px;
 }
 .second-title {
   @apply text-mainColor;
@@ -27,7 +29,13 @@
 }
 
 input {
-  @apply bg-fourthColor mx-auto px-3;
+  @apply bg-fourthColor mx-auto px-3 my-4;
   width: 191px;
   height: 61px;
+}
+h2 {
+  @apply my-5;
+}
+h3 {
+  @apply font-bold;
 }

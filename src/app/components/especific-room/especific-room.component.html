@@ -24,28 +24,35 @@
       <div class="game-div">
         <div class="game-div--start">
           <p>Start the game</p>
-          <button class="button-icon" aria-label="search">
-            <fa-icon
-              [icon]="faStart"
-              class="icon--send"
-              (click)="openNewTab()"
-            ></fa-icon>
-          </button>
+          <span class="button-name">
+            <button class="button-icon" aria-label="search">
+              <fa-icon
+                [icon]="faStart"
+                class="icon--send"
+                (click)="openNewTab()"
+              ></fa-icon>
+              <p class="done-text">Play</p>
+            </button>
+          </span>
         </div>
         <div class="game-div--start">
           <input type="text" readonly placeholder="No answer needed" />
-
-          <button
-            class="button-icon"
-            (click)="onStart()"
-            [disabled]="startGame"
-            aria-label="search"
-          >
-            <fa-icon
-              [icon]="faSend"
-              class="{{ startGame ? 'correct' : 'icon--send' }}"
-            ></fa-icon>
-          </button>
+          <span class="button-name">
+            <button
+              class="button-icon"
+              (click)="onStart()"
+              [disabled]="startGame"
+              aria-label="search"
+            >
+              <fa-icon
+                [icon]="faSend"
+                class="{{ startGame ? 'correct' : 'icon--send' }}"
+              ></fa-icon>
+              <p class="{{ startGame ? 'correct-text' : 'done-text' }}">
+                Question done
+              </p>
+            </button>
+          </span>
         </div>
       </div>
       <div class="question-div">
@@ -82,10 +89,19 @@
                 (click)="onAnswer(question.answer, i)"
                 aria-label="search"
               >
-                <fa-icon
-                  [icon]="faSend"
-                  class="{{ correctAnswer === i ? 'correct' : 'icon--send' }}"
-                ></fa-icon>
+                <span class="button-name">
+                  <fa-icon
+                    [icon]="faSend"
+                    class="{{ correctAnswer === i ? 'correct' : 'icon--send' }}"
+                  ></fa-icon>
+                  <p
+                    class="{{
+                      correctAnswer === i ? 'correct-text' : 'send-text'
+                    }}"
+                  >
+                    Submit
+                  </p></span
+                >
               </button>
               <button
                 class="button-icon"
@@ -93,7 +109,10 @@
                 id="{{ question.hint }}"
                 aria-label="search"
               >
-                <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+                <span class="button-name">
+                  <fa-icon [icon]="faHint" class="icon--hint"></fa-icon>
+                  <p class="hint-text">Hint</p></span
+                >
               </button>
             </form>
           </div>

@@ -5,6 +5,7 @@
 .main-room-div {
   @apply bg-tercerColor text-white;
   height: 100%;
+  min-height: 100vh;
   width: 100vw;
 }
 .main-room-title {
@@ -37,7 +38,7 @@
   position: relative;
 }
 .question-card--description {
-  @apply flex items-center justify-around;
+  @apply flex items-center justify-between;
 }
 input {
   @apply bg-fourthColor px-2 mr-2;
@@ -126,4 +127,68 @@ input {
 
 .no-admin {
   display: none;
+}
+
+.button-name {
+  @apply md:flex lg:flex;
+}
+.hint-text {
+  display: none;
+}
+.send-text {
+  display: none;
+}
+.done-text {
+  display: none;
+}
+.correct-text {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .icon--send {
+    @apply ml-80;
+  }
+  .correct {
+    @apply ml-80;
+  }
+  input {
+    width: 207px;
+  }
+  .question-card--description {
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .hint-text {
+    @apply bg-sixthColor p-2;
+    display: block;
+    color: black;
+  }
+  .send-text {
+    @apply bg-seventhColor p-2;
+    display: block;
+    color: black;
+  }
+  .done-text {
+    @apply bg-seventhColor p-2;
+    display: inline;
+    color: black;
+  }
+  .correct-text {
+    @apply bg-seventhColor bg-opacity-60 p-2;
+    display: inline;
+    color: black;
+  }
+  .button-name {
+    @apply mx-3;
+  }
+  .correct {
+    @apply ml-96;
+  }
+  .icon--send {
+    @apply ml-96;
+  }
+  input {
+    width: 207px;
+  }
 }
