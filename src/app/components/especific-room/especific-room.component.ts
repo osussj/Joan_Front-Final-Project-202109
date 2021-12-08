@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import jwtDecode from "jwt-decode";
 import { ToastrService } from "ngx-toastr";
+import { IUserToken } from "src/app/core/models/usertoken";
 
 import { StoreService } from "src/app/core/services/store/store.service";
 import Swal from "sweetalert2";
@@ -32,19 +33,23 @@ export class EspecificRoomComponent implements OnInit {
 
   faSpinner = faSpinner;
 
-  isLoadingThePage: boolean = false;
-
   value: number = -1;
+
+  correctAnswer: number = -1;
 
   questionForm: any | FormBuilder;
 
   answerForm: any | FormBuilder;
 
+  isLoadingThePage: boolean = false;
+
   tocreate: boolean = false;
 
   toedit: boolean = false;
 
-  questions$ = this.storeService.question$;
+  isAdmin: boolean = false;
+
+  startGame: boolean = false;
 
   updatedQuestion: string = "";
 
@@ -52,13 +57,9 @@ export class EspecificRoomComponent implements OnInit {
 
   hintQuestion: string = "";
 
-  isAdmin: boolean = false;
-
-  correctAnswer: number = -1;
-
-  startGame: boolean = false;
-
   newQuestion: object = {};
+
+  questions$ = this.storeService.question$;
 
   @Input() tryAnswer!: string;
 
@@ -81,7 +82,7 @@ export class EspecificRoomComponent implements OnInit {
     });
   }
 
-  func(p: any) {
+  func(p: object) {
     return p.toString().replace(/./g, "*");
   }
 
@@ -98,7 +99,7 @@ export class EspecificRoomComponent implements OnInit {
 
   token: string = this.getToken();
 
-  userToken: any = jwtDecode(this.token);
+  userToken: IUserToken = jwtDecode(this.token);
 
   isUserAdmin() {
     if (this.userToken.isAdmin === true) {
@@ -123,7 +124,7 @@ export class EspecificRoomComponent implements OnInit {
     });
   }
 
-  toEdit(i: any) {
+  toEdit(i: number) {
     this.toedit = !this.toedit;
     this.value = i;
   }
@@ -138,7 +139,7 @@ export class EspecificRoomComponent implements OnInit {
     this.toastr.success("Correct answer");
   }
 
-  onAnswer(answer: any, i: number) {
+  onAnswer(answer: string, i: number) {
     if (answer === this.answerQuestion.toLowerCase()) {
       this.toastr.success("Correct answer");
       this.correctAnswer = i;
