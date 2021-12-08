@@ -4,6 +4,7 @@ import { EspecificRoomComponent } from "./components/especific-room/especific-ro
 import { LatestusersComponent } from "./components/latestusers/latestusers.component";
 import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
 import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.component";
+import { MyplaceloginComponent } from "./components/myplacelogin/myplacelogin.component";
 import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprofile.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: "myplace/profiles", component: MyplaceprofileComponent },
   { path: "myplace/admin", component: MyplaceadminComponent },
   { path: "myplace/api/users", component: LatestusersComponent },
+  { path: "myplace/login", component: MyplaceloginComponent },
   { path: "**", redirectTo: "/dashboard", pathMatch: "full" },
 ];
 
