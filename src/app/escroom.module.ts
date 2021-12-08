@@ -17,9 +17,10 @@ import { MyplacehomeComponent } from "./components/myplacehome/myplacehome.compo
 import { MyplaceprofileComponent } from "./components/myplaceprofile/myplaceprofile.component";
 import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
 import { LatestusersComponent } from "./components/latestusers/latestusers.component";
-import { ProfileComponent } from './components/profile/profile.component';
-import { RegisterComponent } from './components/register/register.component';
-import { MyplaceloginComponent } from './components/myplacelogin/myplacelogin.component';
+import { ProfileComponent } from "./components/profile/profile.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { MyplaceloginComponent } from "./components/myplacelogin/myplacelogin.component";
+import { MyplacenavbarComponent } from './components/myplacenavbar/myplacenavbar.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MyplaceloginComponent } from './components/myplacelogin/myplacelogin.co
     ProfileComponent,
     RegisterComponent,
     MyplaceloginComponent,
+    MyplacenavbarComponent,
   ],
   imports: [
     BrowserModule,
