@@ -26,6 +26,12 @@ export class StoreService {
 
   public userSubject$ = this.user$.pipe(switchMap(() => this.loadUsers()));
 
+  public latestUsers$ = new BehaviorSubject<[]>([]);
+
+  public latestUsersSubject$ = this.latestUsers$.pipe(
+    switchMap(() => this.loadLatestUsers())
+  );
+
   public userProfile$ = new BehaviorSubject<{}>({});
 
   public userProfileSubject$ = this.userProfile$.pipe(
@@ -69,6 +75,10 @@ export class StoreService {
 
   public loadUsers() {
     return this.myplaceService.loadUsers();
+  }
+
+  public loadLatestUsers() {
+    return this.myplaceService.loadLatestUsers();
   }
 
   public loadUserProfile() {

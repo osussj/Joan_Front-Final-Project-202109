@@ -18,4 +18,8 @@ export class MyplaceService {
   loginUser(data: IUser): Observable<any> {
     return this.http.post(`${this.apiUrl}login`, data);
   }
+
+  loadLatestUsers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}users/latest`);
+  }
 }
