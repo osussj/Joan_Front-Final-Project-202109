@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { ApiusersComponent } from "./components/apiusers/apiusers.component";
 import { EspecificRoomComponent } from "./components/especific-room/especific-room.component";
 import { LatestusersComponent } from "./components/latestusers/latestusers.component";
 import { MyplaceadminComponent } from "./components/myplaceadmin/myplaceadmin.component";
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "myplace/profiles", component: MyplaceprofileComponent },
   { path: "myplace/admin", component: MyplaceadminComponent },
   { path: "myplace/api/users", component: LatestusersComponent },
+  { path: "myplace/api/users/latest", component: ApiusersComponent },
   { path: "myplace/login", component: MyplaceloginComponent },
   { path: "**", redirectTo: "/dashboard", pathMatch: "full" },
 ];
