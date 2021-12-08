@@ -21,6 +21,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { MyplaceloginComponent } from "./components/myplacelogin/myplacelogin.component";
 import { MyplacenavbarComponent } from './components/myplacenavbar/myplacenavbar.component';
+import { ApiusersComponent } from './components/apiusers/apiusers.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MyplacenavbarComponent } from './components/myplacenavbar/myplacenavbar
     RegisterComponent,
     MyplaceloginComponent,
     MyplacenavbarComponent,
+    ApiusersComponent,
   ],
   imports: [
     BrowserModule,
