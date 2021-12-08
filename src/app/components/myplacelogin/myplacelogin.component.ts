@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { StoreService } from "src/app/core/services/store/store.service";
 
 @Component({
@@ -11,12 +12,11 @@ import { StoreService } from "src/app/core/services/store/store.service";
 export class MyplaceloginComponent implements OnInit {
   loginForm: any | FormBuilder;
 
-  errorMessage: string = "";
-
   constructor(
     private formBuilder: FormBuilder,
     public storeService: StoreService,
-    private router: Router
+    public router: Router,
+    public toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ export class MyplaceloginComponent implements OnInit {
       },
       error: (e) => {
         const loginError = e.error.error;
-        this.errorMessage = loginError;
+        this.toastr.error(loginError);
       },
     });
   }
