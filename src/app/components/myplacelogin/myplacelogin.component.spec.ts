@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { By } from "@angular/platform-browser";
 import { RouterTestingModule } from "@angular/router/testing";
+import { MyplacenavbarComponent } from "../myplacenavbar/myplacenavbar.component";
 
 import { MyplaceloginComponent } from "./myplacelogin.component";
 
@@ -18,7 +19,7 @@ describe("MyplaceloginComponent", () => {
         ReactiveFormsModule,
         RouterTestingModule,
       ],
-      declarations: [MyplaceloginComponent],
+      declarations: [MyplaceloginComponent, MyplacenavbarComponent],
     }).compileComponents();
   });
 
