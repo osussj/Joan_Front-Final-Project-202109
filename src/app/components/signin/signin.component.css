@@ -8,6 +8,11 @@
   width: 191px;
   height: 61px;
 }
+.signin-button-join {
+  @apply bg-fifthColor mx-auto;
+  width: 100px;
+  height: 61px;
+}
 .form-container {
   @apply bg-tercerColor flex flex-col items-center justify-center px-10;
   height: 100vh;
