@@ -26,9 +26,14 @@
 .div-body {
   display: flex;
   flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .room-card__img {
   border-radius: 50%;
   width: 57px;
   height: 57px;
+}
+p {
+  width: 80%;
 }
