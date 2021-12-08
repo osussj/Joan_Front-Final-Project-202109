@@ -74,4 +74,8 @@ export class StoreService {
   public loadUserProfile() {
     return this.userService.loadUserProfile();
   }
+
+  public loginUserNode(data: IUser) {
+    return this.myplaceService.loginUser(data);
+  }
 }

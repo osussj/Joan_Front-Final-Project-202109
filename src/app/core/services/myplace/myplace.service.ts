@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { IUser } from "../../models/user";
 
 @Injectable({
   providedIn: "root",
@@ -12,5 +13,9 @@ export class MyplaceService {
 
   loadUsers(): Observable<any> {
     return this.http.get(`${this.apiUrl}users`);
+  }
+
+  loginUser(data: IUser): Observable<any> {
+    return this.http.post(`${this.apiUrl}login`, data);
   }
 }
