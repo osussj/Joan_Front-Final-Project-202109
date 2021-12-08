@@ -1,0 +1,20 @@
+<div>
+  <div class="title-div">
+    <h1>WELCOME TO MY PLACE</h1>
+  </div>
+  <div class="profiles-div">
+    <h2 class="title">LOGIN</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="signin-form">
+      <input type="text" formControlName="username" placeholder="Username" />
+      <input
+        type="password"
+        formControlName="password"
+        autocomplete="on"
+        placeholder="Password"
+      />
+      <button [disabled]="loginForm.invalid" class="login-button" type="submit">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
