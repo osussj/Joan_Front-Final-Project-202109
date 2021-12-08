@@ -69,4 +69,12 @@ describe("StoreService", () => {
     service.loadLatestUsers();
     expect(spyFn).toHaveBeenCalled();
   });
+  it("should call loginUsersNode", () => {
+    const spyFn = spyOn(service, "loginUserNode").and.callThrough();
+    service.loginUserNode({
+      username: "fakeUsername",
+      password: "fakePassword",
+    });
+    expect(spyFn).toHaveBeenCalled();
+  });
 });

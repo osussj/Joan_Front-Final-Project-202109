@@ -86,6 +86,6 @@ export class StoreService {
   }
 
   public loginUserNode(data: IUser) {
-    return this.myplaceService.loginUser(data);
+    return this.myplaceService.loginUserNode(data);
   }
 }
