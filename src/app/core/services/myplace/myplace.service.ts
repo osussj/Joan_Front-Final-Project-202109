@@ -15,7 +15,7 @@ export class MyplaceService {
     return this.http.get(`${this.apiUrl}users`);
   }
 
-  loginUser(data: IUser): Observable<any> {
+  loginUserNode(data: IUser): Observable<any> {
     return this.http.post(`${this.apiUrl}login`, data);
   }
 
