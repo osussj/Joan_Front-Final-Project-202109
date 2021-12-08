@@ -20,6 +20,7 @@ module.exports = {
         sixthColor: "#FA811B",
         seventhColor: "#28A745",
         eighthColor: "#18BC9C",
+        inputColor: "#FFFFF1",
         red: {
           100: "#FF3333",
           200: "#61252E",
