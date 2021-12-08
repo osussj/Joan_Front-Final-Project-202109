@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MyplacenavbarComponent } from "../myplacenavbar/myplacenavbar.component";
 
 import { MyplaceprofileComponent } from "./myplaceprofile.component";
 
@@ -8,7 +9,7 @@ describe("MyplaceprofileComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MyplaceprofileComponent],
+      declarations: [MyplaceprofileComponent, MyplacenavbarComponent],
     }).compileComponents();
   });
 

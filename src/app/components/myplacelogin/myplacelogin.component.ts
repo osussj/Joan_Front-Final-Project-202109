@@ -31,6 +31,10 @@ export class MyplaceloginComponent implements OnInit {
       next: () => {
         this.router.navigate(["/myplace/admin"]);
       },
+      error: (e) => {
+        const loginError = e.error.error;
+        this.errorMessage = loginError;
+      },
     });
   }
 }
